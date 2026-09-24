@@ -1,0 +1,16 @@
+<main class="commerce-page all-products-page">
+	<div class="commerce-heading">
+		<div>
+			<p class="eyebrow">The complete collection</p>
+			<h1>All jewellery</h1>
+			<p class="page-caption">Find the piece that becomes part of your everyday.</p>
+		</div><span>{{ store.catalogProducts().length }} pieces</span>
+	</div>
+	<div class="catalog-toolbar">
+		<div class="catalog-categories">@for (category of store.categories; track category) {<button type="button"
+				[class.active]="store.selectedCategory() === category" (click)="store.selectCategory(category)">{{
+				category }}</button>}</div><span><i class="bi bi-search"></i> Use the search above</span>
+	</div>
+	<div class="catalog-grid">@for (product of store.catalogProducts(); track product.name) {<app-product-card
+			[product]="product" />} @empty {<p class="empty-products">No jewellery matches your search.</p>}</div>
+</main>

@@ -1,0 +1,14 @@
+:host { display: block; background: #fffdfa; }
+.category-strip { max-width: 1180px; margin: 0 auto; padding: 28px 24px 30px; }
+.category-heading { margin-bottom: 18px; text-align: center; }
+.category-heading .eyebrow { margin: 0 0 7px; color: #a57448; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.category-heading h2 { margin: 0; color: #263d34; font: 500 clamp(25px, 3vw, 34px)/1.05 Georgia, serif; }
+.category-subtitle { margin: 8px 0 0; color: #8b8177; font-size: 11px; }
+.category-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.category-tile { min-width: 0; padding: 0 0 11px; border: 1px solid #e8e0d6; background: #fffdfa; color: #302a25; cursor: pointer; text-align: center; transition: border-color .2s, background .2s, transform .2s; }
+.category-tile img { display: block; width: 100%; aspect-ratio: 1.55; object-fit: cover; filter: saturate(.82); }
+.category-tile > span { display: block; margin-top: 9px; font: 500 14px Georgia, serif; }
+.category-tile small { display: block; margin-top: 5px; color: #958a7f; font-size: 8px; letter-spacing: .04em; text-transform: uppercase; }
+.category-tile small i { margin-left: 3px; color: #a57948; }
+.category-tile.active, .category-tile:hover { border-color: #bd9364; background: #fcf8f1; transform: translateY(-2px); }
+@media (max-width: 700px) { .category-strip { padding: 24px 18px 22px; } .category-heading h2 { font-size: 27px; } .category-subtitle { font-size: 10px; } .category-list { display: flex; gap: 9px; overflow-x: auto; padding: 2px 1px 7px; } .category-tile { flex: 0 0 142px; } }

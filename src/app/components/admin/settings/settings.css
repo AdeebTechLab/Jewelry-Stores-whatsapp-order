@@ -1,0 +1,11 @@
+.settings-panel { max-width: 620px; margin: 0 auto; padding: 30px; background: #fffdfa; }
+.settings-panel form { display: grid; gap: 10px; }
+.settings-panel h2 { margin: 0 0 8px; font: 500 28px Georgia, serif; }
+.settings-panel p, .settings-panel small { color: #8e8176; font-size: 12px; line-height: 1.6; }
+.settings-panel p { margin: 0 0 14px; }
+.settings-panel label { color: #554940; font-size: 12px; font-weight: 700; }
+.settings-panel input { padding: 14px; border: 1px solid #d8cfc3; outline: 0; background: #fff; color: #302a25; }
+.settings-panel input:focus { border-color: #a57448; }
+.settings-panel .commerce-button { width: fit-content; margin-top: 12px; }
+.save-message { color: #276744; font-size: 12px; }
+@media (max-width: 760px) { .settings-panel { padding: 22px; } }

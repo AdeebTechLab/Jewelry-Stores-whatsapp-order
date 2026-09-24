@@ -1,0 +1,37 @@
+
+.order-card { border-bottom: 1px solid #ded3c8; }
+.orders-table .order-row { grid-template-columns: 1.1fr 1.2fr 1fr 1fr .7fr auto; }
+.delete-order { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #e4aaa1; background: #fff4f1; color: #a54638; cursor: pointer; }
+.delete-order:hover { background: #a54638; color: #fff; }
+.order-items, .cancellation-note { display: flex; gap: 12px; align-items: center; padding: 10px 18px 12px; color: #776b61; font-size: 12px; }
+.order-items span { padding: 5px 9px; background: #f5efe8; }
+.cancellation-note { flex-wrap: wrap; background: #fff4f1; color: #a54638; }
+.cancellation-note strong { color: #713b32; }
+.cancellation-note > span { color: #713b32; }
+.reason-editor { display: flex; flex: 1 1 280px; gap: 8px; }
+.reason-editor input { min-width: 0; flex: 1; padding: 9px 10px; border: 1px solid #e2b8ae; background: #fff; color: #413b35; }
+.reason-editor button { border: 0; padding: 9px 13px; background: #a54638; color: #fff; cursor: pointer; font-size: 11px; font-weight: 700; }
+.cancel-backdrop { position: fixed; z-index: 15; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(45, 41, 38, .5); }
+.cancel-modal { position: relative; width: min(100%, 460px); padding: 34px; background: #fffdfa; box-shadow: 0 24px 70px rgba(45, 41, 38, .25); }
+.cancel-close { position: absolute; top: 14px; right: 14px; border: 0; background: transparent; color: #887e74; cursor: pointer; font-size: 18px; }
+.cancel-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 50%; background: #fff0ed; color: #a54638; font-size: 20px; }
+.cancel-modal h2 { margin: 0; color: #27231f; font: 500 30px/1.1 Georgia, serif; }
+.cancel-copy { margin: 12px 0 24px; color: #887e74; font-size: 13px; line-height: 1.6; }
+.cancel-modal label { display: block; margin-bottom: 7px; color: #413b35; font-size: 12px; font-weight: 700; }
+.cancel-modal textarea { width: 100%; min-height: 96px; padding: 12px; border: 1px solid #d8cfc3; outline: 0; resize: vertical; }
+.cancel-modal textarea:focus { border-color: #a54638; box-shadow: 0 0 0 3px rgba(165, 70, 56, .12); }
+.cancel-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+.keep-order, .confirm-cancel { min-height: 42px; padding: 0 15px; border: 0; cursor: pointer; font-size: 12px; font-weight: 700; }
+.keep-order { background: #f3eee8; color: #625950; }
+.confirm-cancel { background: #a54638; color: #fff; }
+.confirm-cancel:disabled { cursor: not-allowed; opacity: .45; }
+@media (max-width: 760px) {
+	.order-head { display: none; }
+	.orders-table .order-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+	.orders-table .order-row > *:last-child { text-align: left; }
+	.order-items, .cancellation-note { align-items: flex-start; flex-direction: column; }
+	.reason-editor { width: 100%; }
+	.cancel-modal { padding: 28px 22px; }
+	.cancel-actions { flex-direction: column-reverse; }
+	.keep-order, .confirm-cancel { width: 100%; }
+}

@@ -1,0 +1,17 @@
+:host { display: block; background: #fffdfa; }
+.announcement { padding: 6px 12px; background: #0d3b32; color: #dfc58e; font-size: 8px; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.site-header { display: flex; align-items: center; gap: 32px; max-width: 1180px; margin: auto; padding: 14px 24px; border-bottom: 1px solid #eee6dc; }
+.brand { display: inline-flex; align-items: center; gap: 7px; color: #263d34; font: 500 17px Georgia, serif; letter-spacing: .05em; text-decoration: none; white-space: nowrap; }
+.brand-mark { display: grid; place-items: center; width: 38px; height: 25px; border: 1px solid #b48a5e; border-radius: 50%; color: #996b3e; font: 9px Georgia, serif; }
+nav { display: flex; gap: 22px; margin-right: auto; }
+nav a, .header-actions a { color: #776c62; font-size: 9px; font-weight: 700; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; }
+nav a:hover, nav a.active-link { color: #a57448; }
+.header-actions { display: flex; align-items: center; gap: 13px; }
+.header-actions button, .header-actions a, .menu-button { border: 0; background: transparent; color: #423a34; cursor: pointer; font-size: 15px; text-decoration: none; }
+.search-box { display: flex; align-items: center; gap: 5px; width: 120px; border-bottom: 1px solid #cdbdad; color: #8f8175; }
+.search-box input { width: 100%; height: 24px; padding: 0; border: 0; outline: 0; background: transparent; color: #302a25; font-size: 9px; }
+.header-icon { position: relative; }
+.header-icon span, .bag span { position: absolute; top: -7px; right: -7px; display: grid; place-items: center; width: 13px; height: 13px; border-radius: 50%; background: #b27a4d; color: #fff; font-size: 7px; }
+.menu-button { display: none; }
+@media (min-width: 761px) { :host .site-header { position: relative; z-index: 20; } :host nav { position: static; display: flex !important; flex-direction: row; gap: 22px; margin-right: auto; padding: 0; border: 0; background: transparent; box-shadow: none; } :host .menu-button { display: none !important; } }
+@media (max-width: 760px) { .site-header { gap: 13px; padding: 11px 16px; } .menu-button { display: block; } nav { position: absolute; z-index: 10; top: 73px; right: 0; left: 0; display: none; flex-direction: column; gap: 0; padding: 8px 16px; background: #fffdfa; box-shadow: 0 12px 22px rgba(45,41,38,.1); } nav.is-open { display: flex; } nav a { padding: 12px 0; border-bottom: 1px solid #eee6dc; } .search-box { display: none; } .brand { margin-right: auto; font-size: 15px; } }

@@ -1,0 +1,39 @@
+:host { display: block; }
+.auth-page { min-height: 100dvh; display: grid; grid-template-columns: minmax(360px, 43%) 1fr; background: #f7f3ed; }
+.brand-panel { position: relative; display: flex; flex-direction: column; min-height: 100dvh; padding: 42px clamp(32px, 6vw, 92px); color: #f8f4ed; overflow: hidden; background: linear-gradient(145deg, #6a4b35, #2d2926 78%); }
+.brand-panel::before { content: ''; position: absolute; width: 380px; height: 380px; right: -150px; top: 12%; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 42px rgba(255,255,255,.04), 0 0 0 84px rgba(255,255,255,.03); }
+.brand { display: inline-flex; align-items: center; gap: 12px; width: fit-content; text-decoration: none; font-size: 18px; font-weight: 600; letter-spacing: .08em; }
+.brand-mark { display: inline-grid; place-items: center; width: 48px; height: 31px; border: 1px solid #c8a77b; border-radius: 18px; color: #dfbd8d; font-family: Georgia, serif; font-size: 11px; letter-spacing: .02em; }
+.brand-copy { position: relative; z-index: 1; margin: auto 0; max-width: 390px; }
+.eyebrow { margin: 0 0 18px; color: #ab8158; font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+.brand-panel .eyebrow { color: #ddbd91; }
+h1, h2 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -.03em; }
+h1 { font-size: clamp(42px, 4.8vw, 68px); line-height: 1.04; }
+h1 em { color: #d6ae7d; font-style: italic; }
+.description { max-width: 330px; margin: 26px 0 0; color: rgba(248,244,237,.72); font-size: 14px; line-height: 1.8; }
+.brand-footer { position: relative; z-index: 1; margin: 0; color: rgba(248,244,237,.5); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.form-panel { display: grid; place-items: center; padding: 48px 28px; }
+.form-wrap { width: min(100%, 420px); }
+.form-wrap h2 { color: #27231f; font-size: clamp(30px, 3vw, 40px); line-height: 1.1; }
+.subheading { margin: 12px 0 34px; color: #887e74; font-size: 14px; }
+form { display: grid; gap: 9px; }
+label { color: #413b35; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+input[type='email'], input[type='password'], input[type='text'] { width: 100%; height: 50px; margin-bottom: 11px; padding: 0 15px; border: 1px solid #d8cfc3; border-radius: 2px; outline: none; background: #fffdfa; color: #27231f; font-size: 14px; transition: border-color .2s, box-shadow .2s; }
+input:focus { border-color: #ad8053; box-shadow: 0 0 0 3px rgba(173,128,83,.12); }
+.label-row { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.label-row a, .switch-text a { color: #996b3e; font-weight: 700; text-decoration: none; }
+.label-row a:hover, .switch-text a:hover { text-decoration: underline; }
+.password-field { position: relative; }
+.password-field input { padding-right: 60px; margin-bottom: 0; }
+.password-toggle { position: absolute; right: 13px; top: 50%; border: 0; background: transparent; color: #996b3e; cursor: pointer; font-size: 12px; font-weight: 700; transform: translateY(-50%); }
+.check-row { display: flex; align-items: center; gap: 9px; margin: 10px 0 12px; color: #887e74; font-weight: 500; }
+.check-row input { width: 15px; height: 15px; accent-color: #996b3e; }
+.primary-button { display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 18px 0 20px; border: 0; border-radius: 2px; background: #3a3028; color: #fff; cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: .04em; transition: background .2s, transform .2s; }
+.primary-button:hover { background: #9b6d40; transform: translateY(-1px); }
+.primary-button span { font-size: 20px; font-weight: 400; }
+.field-error, .form-error { color: #a54638; font-size: 11px; }
+.form-error { margin: 4px 0 6px; padding: 10px 12px; background: #fff0ed; }
+.switch-text { margin: 30px 0 0; color: #887e74; text-align: center; font-size: 13px; }
+.legal { margin: 54px 0 0; color: #aaa096; font-size: 10px; line-height: 1.6; text-align: center; }
+.mobile-brand { display: none; }
+@media (max-width: 760px) { .auth-page { display: block; } .brand-panel { min-height: 250px; padding: 25px 24px; } .brand-copy { margin: 48px 0 0; } .brand-copy .description, .brand-footer { display: none; } h1 { font-size: 38px; } .form-panel { padding: 44px 24px 36px; } .mobile-brand { display: flex; align-items: center; gap: 9px; margin-bottom: 42px; color: #3a3028; font-size: 17px; font-weight: 700; } }

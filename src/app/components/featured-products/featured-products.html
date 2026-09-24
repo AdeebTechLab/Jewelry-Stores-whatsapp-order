@@ -1,0 +1,9 @@
+<section class="product-section">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">Danish&amp;Co favourites</p>
+            <h2>Best sellers</h2>
+        </div><a href="#shop">View all pieces <span>↗</span></a>
+    </div>
+    <div class="product-grid">@for (product of store.filteredProducts(); track product.name) { <app-product-card [product]="product" /> } @empty { <p class="empty-products">No pieces match your search.</p> }</div>
+</section>

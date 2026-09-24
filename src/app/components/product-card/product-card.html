@@ -1,0 +1,42 @@
+<article class="product-card">
+  <div class="product-image">
+    <a class="product-image-link" [routerLink]="['/product', product().name]"><img [src]="product().image"
+        [alt]="product().name" loading="lazy" /></a>
+    <span class="product-tag">{{ product().tag }}</span>
+    <button class="wishlist" type="button" [class.saved]="store.isWishlisted(product().name)"
+      [attr.aria-label]="'Save ' + product().name"
+      (click)="$event.preventDefault(); $event.stopPropagation(); store.toggleWishlist(product().name)">@if
+      (store.isWishlisted(product().name)) { <i class="bi bi-heart-fill"></i> } @else { <i class="bi bi-heart"></i>
+      }</button>
+    <button class="quick-add" type="button" (click)="openOptions($event)">Add to cart <i
+        class="bi bi-bag-plus"></i></button>
+  </div>
+  <div class="product-meta">
+    <div>
+      <h3>{{ product().name }}</h3>
+      <p>{{ product().category }} · {{ product().stock }} available</p><small>{{ product().sizes.join(' · ') }}</small>
+    </div><strong>${{ product().price }}</strong>
+  </div>
+</article>
+@if (optionsOpen) {<div class="card-modal-backdrop" (click)="closeOptions($event)">
+  <section class="card-options" role="dialog" aria-modal="true"
+    [attr.aria-label]="'Choose options for ' + product().name" (click)="$event.stopPropagation()"><button
+      class="card-modal-close" type="button" aria-label="Close size selector" (click)="closeOptions($event)"><i
+        class="bi bi-x-lg"></i></button><img class="card-modal-image" [src]="product().image" [alt]="product().name" />
+    <p class="card-modal-kicker">Add to your collection</p>
+    <h3>{{ product().name }}</h3>
+    <p class="card-modal-price">${{ product().price }}</p><label [for]="'size-' + product().name">Select
+      size</label><select [id]="'size-' + product().name" [value]="selectedSize"
+      (change)="selectedSize = $any($event.target).value">
+      <option value="" disabled>Choose a size</option>@for (size of product().sizes; track size) {<option
+        [value]="size">{{ size }}</option>}
+    </select>
+    <p class="card-stock" [class.out-of-stock]="product().stock < 1"><i class="bi"
+        [class.bi-check-circle]="product().stock > 0" [class.bi-x-circle]="product().stock < 1"></i>{{ product().stock >
+      0 ? product().stock + ' available now' : 'Out of stock' }}</p><label for="quantity">Quantity</label>
+    <div class="quantity-picker"><button type="button" (click)="decreaseQuantity()"
+        aria-label="Decrease quantity">−</button><span>{{ quantity }}</span><button type="button"
+        (click)="increaseQuantity()" aria-label="Increase quantity">+</button></div><button class="card-add-button"
+      type="button" (click)="addToCart($event)">Add to cart <i class="bi bi-arrow-right"></i></button>
+  </section>
+</div>}

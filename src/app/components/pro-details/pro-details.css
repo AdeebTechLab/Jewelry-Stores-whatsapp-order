@@ -1,0 +1,38 @@
+:host { display: block; }
+.detail-shell { min-height: 100dvh; padding: 34px max(24px, 6vw) 90px; background: #f7f3ed; color: #302a25; }
+.detail-back { display: inline-flex; align-items: center; gap: 8px; color: #8f6544; font-size: 12px; font-weight: 700; text-decoration: none; }
+.detail-stage { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr); align-items: center; gap: clamp(42px, 7vw, 110px); width: min(100%, 1160px); margin: 42px auto 0; }
+.detail-media { position: relative; width: 100%; aspect-ratio: 1 / 1.08; overflow: hidden; background: #e8dfd4; box-shadow: 18px 18px 0 #e9ded1; }
+.detail-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.detail-media-tag, .detail-media-index { position: absolute; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-shadow: 0 1px 8px rgba(0,0,0,.35); text-transform: uppercase; }
+.detail-media-tag { top: 20px; left: 20px; }
+.detail-media-index { right: 20px; bottom: 20px; }
+.detail-content { padding: 22px 0; }
+.detail-kicker { margin: 0 0 16px; color: #a57448; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.detail-content h1 { max-width: 520px; margin: 0; color: #27231f; font: 500 clamp(42px, 5vw, 72px)/.98 Georgia, serif; letter-spacing: -.045em; }
+.detail-price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 22px 0 24px; padding-bottom: 18px; border-bottom: 1px solid #ded4c8; }
+.detail-price-row strong { color: #554940; font-size: 20px; font-weight: 500; }
+.detail-price-row span { color: #9a8e82; font-size: 10px; text-align: right; }
+.detail-description { max-width: 470px; margin: 0; color: #776c62; font-size: 14px; line-height: 1.8; }
+.detail-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 26px 0; }
+.detail-facts div { display: grid; gap: 7px; padding: 15px; border: 1px solid #ded4c8; background: #fffdfa; }
+.detail-facts span { color: #9a8e82; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.detail-facts strong { color: #413b35; font-size: 12px; font-weight: 700; }
+.detail-purchase { display: grid; gap: 8px; }
+.detail-purchase label { color: #413b35; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.detail-purchase select { width: 100%; min-height: 46px; padding: 0 12px; border: 1px solid #cdbdad; background: #fffdfa; color: #413b35; font-size: 13px; }
+.detail-purchase select:focus { border-color: #a57448; outline: 0; box-shadow: 0 0 0 3px rgba(165,116,72,.12); }
+.detail-stock { display: flex; align-items: center; gap: 7px; margin: 2px 0 10px; color: #3f7771; font-size: 12px; font-weight: 700; }
+.detail-stock.is-empty { color: #a54638; }
+.detail-quantity { display: grid; grid-template-columns: 42px 1fr 42px; align-items: center; min-height: 44px; margin-bottom: 8px; border: 1px solid #cdbdad; background: #fffdfa; text-align: center; }
+.detail-quantity button { height: 100%; border: 0; background: #f1e9e1; color: #413b35; cursor: pointer; font-size: 19px; }
+.detail-quantity span { font-size: 13px; font-weight: 700; }
+.detail-actions { display: flex; gap: 10px; margin-top: 18px; }
+.detail-add { display: inline-flex; flex: 1; align-items: center; justify-content: space-between; min-height: 50px; padding: 0 18px; border: 0; background: #352d27; color: #fff; cursor: pointer; font-size: 12px; font-weight: 700; }
+.detail-add:hover { background: #9b6d40; }
+.detail-add:disabled { cursor: not-allowed; opacity: .45; }
+.detail-wishlist { width: 52px; border: 1px solid #cdbdad; background: transparent; color: #9b6d40; cursor: pointer; font-size: 19px; }
+.detail-notes { display: grid; gap: 12px; margin-top: 28px; padding-top: 22px; border-top: 1px solid #ded4c8; color: #796d63; font-size: 11px; }
+.detail-notes i { display: inline-block; width: 22px; color: #a57448; font-size: 15px; }
+@media (max-width: 850px) { .detail-stage { grid-template-columns: 1fr; gap: 42px; max-width: 650px; } .detail-media { aspect-ratio: 1 / .95; box-shadow: 12px 12px 0 #e9ded1; } .detail-content { padding: 0; } }
+@media (max-width: 520px) { .detail-shell { padding: 24px 18px 60px; } .detail-stage { margin-top: 28px; gap: 32px; } .detail-content h1 { font-size: 48px; } .detail-price-row { align-items: flex-start; flex-direction: column; gap: 8px; } .detail-price-row span { text-align: left; } .detail-facts { grid-template-columns: 1fr; } .detail-media { aspect-ratio: .9; box-shadow: 8px 8px 0 #e9ded1; } }

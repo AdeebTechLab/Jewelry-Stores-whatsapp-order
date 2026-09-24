@@ -1,0 +1,322 @@
+.hero-shell {
+    width: 100%;
+    background: #fffdfa;
+}
+
+.hero-media {
+    position: relative;
+    height: clamp(430px, 45vw, 520px);
+    overflow: hidden;
+    background: #4f463e;
+}
+
+/* HERO IMAGE */
+.hero-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Image ko thora right side se show karega */
+    object-position: 65% center;
+
+    animation: heroImageIn .7s ease;
+}
+
+/* DARK OVERLAY */
+.hero-shade {
+    position: absolute;
+    inset: 0;
+
+    /* Left side dark, right side image clear */
+    background: linear-gradient(
+        90deg,
+        rgba(3, 29, 24, 0.82) 0%,
+        rgba(3, 29, 24, 0.55) 35%,
+        rgba(3, 29, 24, 0.18) 68%,
+        rgba(3, 29, 24, 0.02) 100%
+    );
+}
+
+/* HERO CONTENT */
+.hero-copy-shell {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: max(24px, 7vw);
+    width: min(460px, 42vw);
+    transform: translateY(-50%);
+}
+
+.hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+
+    /* GOLD */
+    color: #e2b96f;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.hero-kicker span {
+    width: 30px;
+    height: 1px;
+    background: #d3a45f;
+}
+
+.hero-copy-shell h1 {
+    max-width: 620px;
+    margin: 0;
+
+    color: #fffaf2;
+
+    font: 500 clamp(36px, 4.2vw, 64px)/.94 Georgia, serif;
+
+    letter-spacing: -.055em;
+}
+
+.hero-copy-shell h1 em {
+    color: #e4bd76;
+    font-style: italic;
+}
+
+.hero-intro {
+    max-width: 290px;
+    margin: 14px 0 20px;
+
+    color: #e4e8e3;
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+/* GOLD BUTTON */
+.button-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 130px;
+    min-height: 40px;
+    padding: 10px 15px;
+
+    border: 1px solid #d4a35c;
+    background: #c99a5b;
+    color: #fffdf7;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+.button-gold:hover {
+    background: #d7aa68;
+    border-color: #e2bd7c;
+    transform: translateY(-2px);
+}
+
+/* SLIDER CONTROLS */
+.hero-controls {
+    position: absolute;
+    z-index: 3;
+    right: 24px;
+    bottom: 70px;
+
+    display: flex;
+    gap: 7px;
+}
+
+.hero-controls button {
+    display: grid;
+    place-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 50%;
+
+    background: rgba(5, 35, 29, .45);
+    color: #fff;
+
+    cursor: pointer;
+    font-size: 10px;
+
+    transition: all .25s ease;
+}
+
+.hero-controls button:hover {
+    background: #c99a5b;
+    border-color: #c99a5b;
+}
+
+/* BOTTOM NOTE */
+.hero-note {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 13px 20px;
+
+    background: #52776d;
+    color: #fff;
+}
+
+.hero-note span {
+    font-size: 8px;
+    letter-spacing: .1em;
+}
+
+.hero-note strong {
+    color: #f2d18f;
+    font: 500 13px/1.05 Georgia, serif;
+}
+
+@keyframes heroImageIn {
+    from {
+        opacity: .2;
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   LARGE SCREEN
+========================= */
+
+@media (min-width: 1200px) {
+
+    .hero-media {
+        height: min(520px, 42.55vw);
+    }
+
+    .hero-media img {
+        object-position: 68% center;
+    }
+
+    .hero-copy-shell {
+        left: max(48px, 9vw);
+    }
+
+    .hero-intro {
+        max-width: 340px;
+        font-size: 13px;
+    }
+
+    .button-gold {
+        width: 145px;
+        min-height: 44px;
+        padding: 13px 15px;
+        font-size: 10px;
+    }
+
+    .hero-controls {
+        right: 30px;
+        bottom: 76px;
+    }
+
+    .hero-note {
+        padding: 17px 25px;
+    }
+
+    .hero-note strong {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero-media {
+        height: 460px;
+    }
+
+    .hero-media img {
+        object-position: 60% center;
+    }
+
+    .hero-copy-shell {
+        width: min(420px, 52vw);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 680px) {
+
+    .hero-media {
+        height: 380px;
+    }
+
+    .hero-media img {
+        object-position: 62% center;
+    }
+
+    .hero-shade {
+        background: linear-gradient(
+            90deg,
+            rgba(3, 29, 24, .82),
+            rgba(3, 29, 24, .42)
+        );
+    }
+
+    .hero-copy-shell {
+        left: 22px;
+        width: calc(100% - 44px);
+    }
+
+    .hero-copy-shell h1 {
+        font-size: clamp(32px, 10vw, 44px);
+    }
+
+    .hero-intro {
+        max-width: 270px;
+    }
+
+    .button-gold {
+        width: 125px;
+        min-height: 40px;
+    }
+
+    .hero-controls {
+        right: 14px;
+        bottom: 60px;
+    }
+
+    .hero-note {
+        padding: 11px 14px;
+    }
+
+    .hero-note strong {
+        font-size: 12px;
+    }
+}

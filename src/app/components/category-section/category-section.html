@@ -1,0 +1,11 @@
+<section class="category-strip" id="shop">
+
+    <div class="category-list">
+        @for (tile of categoryTiles; track tile.category) {
+        <button type="button" class="category-tile" [class.active]="store.selectedCategory() === tile.category"
+            (click)="store.selectCategory(tile.category)"><img [src]="tile.image" [alt]="tile.category"
+                loading="lazy" /><span>{{ tile.category }}</span><small>Explore now <i
+                    class="bi bi-arrow-right"></i></small></button>
+        }
+    </div>
+</section>

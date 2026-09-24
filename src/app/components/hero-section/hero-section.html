@@ -1,0 +1,16 @@
+<section class="hero-shell" id="story">
+    <div class="hero-media"><img [src]="slides[activeSlide()].image" [alt]="slides[activeSlide()].alt" />
+        <div class="hero-shade"></div>
+        <div class="hero-copy-shell">
+            <p class="hero-kicker"><span></span> Collection 01 · 2025</p>
+            <h1>Timeless Beauty,<br /><em>Crafted for You</em></h1>
+            <p class="hero-intro">Discover exquisite jewellery that celebrates every moment and becomes part of your
+                story.</p>
+            <a class="button button-gold" href="#shop">Shop now <span>↗</span></a>
+        </div>
+        @if (slides.length > 1) {<div class="hero-controls"><button type="button" aria-label="Previous slide" (click)="previousSlide()"><i
+                    class="bi bi-chevron-left"></i></button><button type="button" aria-label="Next slide"
+            (click)="nextSlide()"><i class="bi bi-chevron-right"></i></button></div>}
+        <div class="hero-note"><span>0{{ activeSlide() + 1 }} / 03</span><strong>Objects of desire</strong></div>
+    </div>
+</section>

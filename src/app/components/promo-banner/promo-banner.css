@@ -1,0 +1,16 @@
+:host { display: block; }
+.promo-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 1180px; margin: 0 auto; padding: 2px 24px 22px; }
+.promo-card { display: flex; min-height: 105px; align-items: end; justify-content: space-between; gap: 16px; padding: 18px 20px; }
+.promo-card .eyebrow { margin: 0 0 5px; font-size: 8px; }
+.promo-card h2 { margin: 0; font-size: 25px; letter-spacing: -.03em; }
+.promo-card p:not(.eyebrow) { margin: 6px 0 0; font-size: 10px; }
+.promo-card .button { width: auto; min-width: 86px; padding: 9px 10px; font-size: 9px; }
+.promo-card-dark { background: linear-gradient(90deg, rgba(13,59,50,.96) 0 52%, rgba(13,59,50,.35)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85') center/cover; color: #fffaf2; }
+.promo-card-dark .eyebrow { color: #e2bd7a; }
+.promo-card-dark p:not(.eyebrow) { color: #c4d6ca; }
+.promo-card-dark .button { background: #c3975d; color: #fff; }
+.promo-card-light { background: linear-gradient(90deg, rgba(240,232,220,.98) 0 52%, rgba(240,232,220,.4)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85') center/cover; color: #304137; }
+.promo-card-light .eyebrow { color: #a57847; }
+.promo-card-light p:not(.eyebrow) { color: #887b6c; }
+.promo-card-light .button { background: transparent; border: 1px solid #bda88c; color: #5e4937; }
+@media (max-width: 620px) { .promo-section { grid-template-columns: 1fr; padding-inline: 18px; } .promo-card { min-height: 112px; } }

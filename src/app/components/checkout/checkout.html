@@ -1,0 +1,45 @@
+<main class="commerce-page checkout-page"><a class="back-link" routerLink="/cart"><i class="bi bi-arrow-left"></i> Back to bag</a>
+    <div class="commerce-heading">
+        <div>
+            <p class="eyebrow">Almost yours</p>
+            <h1>Checkout</h1>
+        </div>
+    </div>@if (store.cartItems().length) {<section class="checkout-layout">
+        <form class="checkout-form" (ngSubmit)="placeOrder()">
+            <div class="checkout-form-heading"><span class="checkout-step">01</span><div><h2>Delivery details</h2><p>Where should we send your order?</p></div></div>
+            <div class="checkout-fields">
+                <div><label for="customer">Full name</label><input id="customer" name="customer" [(ngModel)]="customer"
+                        required autocomplete="name" placeholder="Your name" /></div>
+                <div><label for="email">Email address</label><input id="email" name="email" type="email"
+                        [(ngModel)]="email" required autocomplete="email" placeholder="you@example.com" /></div>
+                <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel"
+                        [(ngModel)]="phone" required autocomplete="tel" placeholder="+1 555 000 0000" /></div>
+                <div><label for="postalCode">Postal code</label><input id="postalCode" name="postalCode"
+                        [(ngModel)]="postalCode" required autocomplete="postal-code" placeholder="Postal code" /></div>
+            </div><label for="address">Street address</label><textarea id="address" name="address" [(ngModel)]="address"
+                required rows="3" autocomplete="street-address" placeholder="House number and street"></textarea>
+            <div class="checkout-fields">
+                <div><label for="city">City</label><input id="city" name="city" [(ngModel)]="city" required
+                        autocomplete="address-level2" placeholder="City" /></div>
+                <div><label for="country">Country</label><input id="country" name="country" [(ngModel)]="country"
+                        required autocomplete="country-name" placeholder="Country" /></div>
+            </div><label for="paymentMethod">Payment method</label><select id="paymentMethod" name="paymentMethod"
+                [(ngModel)]="paymentMethod">
+                <option value="Cash on delivery">Cash on delivery</option>
+                <option value="Card on delivery">Card on delivery</option>
+            </select><label for="deliveryNote">Delivery note <span>(optional)</span></label><textarea id="deliveryNote"
+                name="deliveryNote" [(ngModel)]="deliveryNote" rows="2"
+                placeholder="Any instructions for delivery?"></textarea><button class="commerce-button"
+                type="submit">Place order <i class="bi bi-check2"></i></button>
+        </form>
+        <aside class="order-summary">
+                <div class="summary-heading"><div><p class="eyebrow">Your selection</p><h2>Order summary</h2></div><span>{{ store.cartCount() }} items</span></div>@for (item of store.cartItems(); track item.product.name +
+                item.selectedSize) {<div class="summary-item"><img [src]="item.product.image" [alt]="item.product.name" /><div class="summary-item-copy"><strong>{{ item.product.name }}</strong><span>{{ item.selectedSize || 'One size' }} · Qty {{ item.quantity }}</span></div><b>${{ item.product.price * item.quantity }}</b></div>}<div
+                class="summary-total"><span>Total</span><strong>${{ store.cartTotal() }}</strong></div>
+            <p class="summary-note"><i class="bi bi-box-seam"></i> Gift-wrapped with care and shipped in 2-4 business
+                days.</p>
+        </aside>
+    </section>} @else {<div class="empty-state">
+        <h2>Your bag is empty</h2><a class="commerce-button" routerLink="/">Browse collection</a>
+    </div>}
+</main>
