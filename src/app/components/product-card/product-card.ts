@@ -17,6 +17,7 @@ export class ProductCard {
   openOptions(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
+    if (!this.store.requireLogin()) return;
     this.optionsOpen = !this.optionsOpen;
     this.selectedSize = this.product().sizes[0] ?? '';
     this.quantity = 1;

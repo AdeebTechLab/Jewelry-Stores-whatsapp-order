@@ -43,7 +43,7 @@
     position: absolute;
     z-index: 2;
     top: 50%;
-    left: max(24px, 7vw);
+    left: max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter)));
     width: min(460px, 42vw);
     transform: translateY(-50%);
 }
@@ -217,7 +217,7 @@
     }
 
     .hero-copy-shell {
-        left: max(48px, 9vw);
+        left: max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter)));
     }
 
     .hero-intro {
@@ -290,8 +290,8 @@
     }
 
     .hero-copy-shell {
-        left: 22px;
-        width: calc(100% - 44px);
+        left: var(--content-gutter);
+        width: calc(100% - 2 * var(--content-gutter));
     }
 
     .hero-copy-shell h1 {

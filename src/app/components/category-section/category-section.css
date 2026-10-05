@@ -1,5 +1,5 @@
 :host { display: block; background: #fffdfa; }
-.category-strip { max-width: 1180px; margin: 0 auto; padding: 28px 24px 30px; }
+.category-strip { width: min(100%, var(--content-max)); margin: 0 auto; padding: 28px var(--content-gutter) 30px; }
 .category-heading { margin-bottom: 18px; text-align: center; }
 .category-heading .eyebrow { margin: 0 0 7px; color: #a57448; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .category-heading h2 { margin: 0; color: #263d34; font: 500 clamp(25px, 3vw, 34px)/1.05 Georgia, serif; }
@@ -11,4 +11,4 @@
 .category-tile small { display: block; margin-top: 5px; color: #958a7f; font-size: 8px; letter-spacing: .04em; text-transform: uppercase; }
 .category-tile small i { margin-left: 3px; color: #a57948; }
 .category-tile.active, .category-tile:hover { border-color: #bd9364; background: #fcf8f1; transform: translateY(-2px); }
-@media (max-width: 700px) { .category-strip { padding: 24px 18px 22px; } .category-heading h2 { font-size: 27px; } .category-subtitle { font-size: 10px; } .category-list { display: flex; gap: 9px; overflow-x: auto; padding: 2px 1px 7px; } .category-tile { flex: 0 0 142px; } }
+@media (max-width: 700px) { .category-strip { padding: 24px var(--content-gutter) 22px; overflow: visible; } .category-heading h2 { font-size: 27px; } .category-subtitle { font-size: 10px; } .category-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: auto; margin-top: 0; overflow: visible; padding: 0; } .category-tile { min-width: 0; } .category-tile img { aspect-ratio: 1.35; } .category-tile:last-child { grid-column: 1 / -1; justify-self: center; width: calc(50% - 5px); } }

@@ -1,5 +1,5 @@
 :host { display: block; }
-.promo-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 1180px; margin: 0 auto; padding: 2px 24px 22px; }
+.promo-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: min(100%, var(--content-max)); margin: 0 auto; padding: 2px var(--content-gutter) 22px; }
 .promo-card { display: flex; min-height: 105px; align-items: end; justify-content: space-between; gap: 16px; padding: 18px 20px; }
 .promo-card .eyebrow { margin: 0 0 5px; font-size: 8px; }
 .promo-card h2 { margin: 0; font-size: 25px; letter-spacing: -.03em; }
@@ -13,4 +13,4 @@
 .promo-card-light .eyebrow { color: #a57847; }
 .promo-card-light p:not(.eyebrow) { color: #887b6c; }
 .promo-card-light .button { background: transparent; border: 1px solid #bda88c; color: #5e4937; }
-@media (max-width: 620px) { .promo-section { grid-template-columns: 1fr; padding-inline: 18px; } .promo-card { min-height: 112px; } }
+@media (max-width: 620px) { .promo-section { grid-template-columns: 1fr; padding-inline: var(--content-gutter); } .promo-card { min-height: 112px; } }

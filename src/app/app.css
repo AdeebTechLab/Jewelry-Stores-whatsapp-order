@@ -320,9 +320,9 @@ h1 em {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 1170px;
+	max-width: var(--content-max);
 	margin: auto;
-	padding: 22px 5vw 30px;
+	padding: 22px max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter))) 30px;
 	border-top: 1px solid #ded4c8;
 }
 
@@ -352,9 +352,9 @@ h1 em {
 }
 
 .product-section {
-	max-width: 1170px;
+	max-width: none;
 	margin: auto;
-	padding: 52px 5vw 110px;
+	padding: 52px max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter))) 110px;
 }
 
 .section-heading {
@@ -501,9 +501,9 @@ blockquote {
 .benefits-section,
 .testimonials-section,
 .newsletter-section {
-	max-width: 1170px;
+	max-width: none;
 	margin: auto;
-	padding: 88px 5vw;
+	padding: 88px max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter)));
 }
 
 .arrivals-section {
@@ -617,10 +617,13 @@ blockquote {
 }
 
 .arrival-image img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
 	height: 100%;
 	display: block;
 	object-fit: cover;
+	object-position: center;
 	transition: transform .45s ease;
 }
 
@@ -846,9 +849,9 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 1170px;
+	max-width: none;
 	margin: auto;
-	padding: 32px 5vw;
+	padding: 32px max(var(--content-gutter), calc((100% - var(--content-max)) / 2 + var(--content-gutter)));
 }
 
 footer p,
@@ -1596,7 +1599,7 @@ footer { padding-top: 24px; padding-bottom: 24px; }
 	.product-section,
 	.testimonials-section,
 	.newsletter-section {
-		padding: 55px 24px;
+		padding: 55px var(--content-gutter);
 	}
 
 	.arrival-grid,
@@ -1642,12 +1645,39 @@ footer { padding-top: 24px; padding-bottom: 24px; }
 	footer {
 		flex-wrap: wrap;
 		gap: 20px;
-		padding: 28px 24px;
+		padding: 28px var(--content-gutter);
 	}
 
 	footer p {
 		order: 3;
 		width: 100%;
+	}
+}
+
+@media (max-width: 520px) {
+	.commerce-page,
+	.admin-page {
+		padding-right: var(--content-gutter);
+		padding-left: var(--content-gutter);
+	}
+
+	.commerce-heading,
+	.admin-heading {
+		align-items: flex-start;
+		gap: 14px;
+	}
+
+	.commerce-heading h1,
+	.detail-content h1 {
+		font-size: clamp(34px, 10vw, 46px);
+	}
+
+	.admin-form-shell {
+		padding: 24px 18px !important;
+	}
+
+	.empty-products {
+		padding: 32px 12px;
 	}
 }
 
@@ -2212,9 +2242,34 @@ footer { padding-top: 24px; padding-bottom: 24px; }
 		display: none;
 	}
 
-	.section-heading .slider-controls {
-		align-self: flex-end;
-		margin-top: -52px;
+	.arrivals-section .section-heading {
+		align-items: flex-end;
+		flex-direction: row;
+		gap: 12px;
+	}
+
+	.arrivals-section .section-heading > div:first-child {
+		min-width: 0;
+	}
+
+	.arrivals-section .section-heading .slider-controls {
+		flex-shrink: 0;
+		align-self: auto;
+		margin: 0;
+	}
+
+	.arrival-slider .arrival-card {
+		width: 100%;
+	}
+
+	.arrival-image {
+		aspect-ratio: .74;
+		min-height: 350px;
+	}
+
+	.arrival-image img {
+		width: 100%;
+		height: 100%;
 	}
 
 	.admin-heading {
@@ -2252,10 +2307,7 @@ footer { padding-top: 24px; padding-bottom: 24px; }
 		display: none;
 	}
 
-	.section-heading .slider-controls {
-		align-self: flex-end;
-		margin-top: -52px;
-	}
+	.arrivals-section .section-heading .slider-controls { margin: 0; }
 }
 
 /* Product detail fallback styles for lazy route rendering */

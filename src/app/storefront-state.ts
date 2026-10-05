@@ -1,4 +1,5 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthState } from './auth-state';
 
 export interface Product {
@@ -119,7 +120,7 @@ export class StorefrontState {
     return Array.from({ length: Math.min(3, products.length) }, (_, offset) => products[(this.arrivalSlide() + offset) % products.length]);
   });
 
-  constructor(private readonly auth: AuthState) {
+  constructor(private readonly auth: AuthState, private readonly router: Router) {
     effect(() => {
       const email = this.auth.currentUser()?.email;
       this.wishlistState.set(this.readUserStorage<string[]>(this.storageKeys.wishlist, [], email));
@@ -133,7 +134,13 @@ export class StorefrontState {
   nextArrival(): void { this.arrivalSlide.update((index) => (index + 1) % this.newArrivals().length); }
   previousArrival(): void { this.arrivalSlide.update((index) => (index - 1 + this.newArrivals().length) % this.newArrivals().length); }
   toggleMenu(): void { this.menuOpen.update((open) => !open); }
+  requireLogin(): boolean {
+    if (this.auth.isLoggedIn()) return true;
+    void this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
+    return false;
+  }
   toggleWishlist(name: string): void {
+    if (!this.requireLogin()) return;
     this.wishlistState.update((items) => {
       const nextItems = items.includes(name) ? items.filter((item) => item !== name) : [...items, name];
       this.writeUserStorage(this.storageKeys.wishlist, nextItems);
@@ -152,6 +159,7 @@ export class StorefrontState {
     this.notify(`${name} deleted`, 'danger');
   }
   addToCart(product: Product, selectedSize?: string, quantity = 1): void {
+    if (!this.requireLogin()) return;
     if (product.stock < 1) { this.notify(`${product.name} is currently out of stock`, 'danger'); return; }
     const size = selectedSize ?? (product.sizes.length === 1 ? product.sizes[0] : undefined);
     if (!size) { this.notify('Please choose a size before adding to cart', 'warning'); return; }

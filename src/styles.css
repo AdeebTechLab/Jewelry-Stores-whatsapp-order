@@ -1,8 +1,12 @@
 @import './app/app.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-:root { color: #27231f; background: #f7f3ed; font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root { --content-max: 1180px; --content-gutter: 24px; color: #27231f; background: #f7f3ed; font-family: 'Trebuchet MS', 'Segoe UI', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
 * { box-sizing: border-box; }
 html, body { margin: 0; min-width: 320px; min-height: 100%; }
 button, input { font: inherit; }
 a { color: inherit; }
+
+@media (max-width: 760px) {
+	:root { --content-gutter: 18px; }
+}

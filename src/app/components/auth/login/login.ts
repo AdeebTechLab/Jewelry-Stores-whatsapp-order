@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthState } from '../../../auth-state';
 
 @Component({
@@ -18,7 +18,7 @@ export class Login {
   submitted = false;
   errorMessage = '';
 
-  constructor(private readonly router: Router, private readonly auth: AuthState) {}
+  constructor(private readonly router: Router, private readonly route: ActivatedRoute, private readonly auth: AuthState) {}
 
   signIn(): void {
     this.submitted = true;
@@ -27,6 +27,8 @@ export class Login {
 
     const error = this.auth.login(this.email, this.password);
     if (error) { this.errorMessage = error; return; }
-    this.router.navigateByUrl(this.auth.isAdmin() ? '/admin/orders' : '/');
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+    const safeReturnUrl = returnUrl?.startsWith('/') && !returnUrl.startsWith('//') ? returnUrl : null;
+    this.router.navigateByUrl(safeReturnUrl ?? (this.auth.isAdmin() ? '/admin/orders' : '/'));
   }
 }
